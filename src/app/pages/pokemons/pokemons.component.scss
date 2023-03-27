@@ -1,0 +1,37 @@
+$space: 2;
+
+$tabletUp: 768px;
+$deskUp: 960px;
+
+.search-container {
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+
+  @media screen and (min-width: $deskUp) {
+    padding-left: $space * 1rem;
+    padding-right: $space * 1rem;
+  }
+}
+
+.pokemons-container {
+  margin: 0 auto;
+  padding-left: $space * 0.3rem;
+  padding-right: $space * 0.3rem;
+  padding-bottom: 3rem;
+
+  ::ng-deep .p-paginator {
+    margin-left: $space * -0.3rem;
+    margin-right: $space * -0.3rem;
+  }
+
+  @media screen and (min-width: $deskUp) {
+    padding-left: $space * 1rem;
+    padding-right: $space * 1rem;
+
+    ::ng-deep .p-paginator {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

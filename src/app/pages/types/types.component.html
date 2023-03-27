@@ -1,0 +1,73 @@
+<app-page-master>
+
+  <div class="search-container mb-3">
+    <p-toolbar styleClass="surface-0">
+      <h3 class="mb-3">Selecione um tipo de pokemon pra ver suas vantagens e desvantagens</h3>
+      <span class="p-float-label" *ngIf="pkmnTypes$ | async as pkmnTypes">
+        <p-dropdown [formControl]="dropdownOptions" [options]="pkmnTypes" optionLabel="name"
+          placeholder="Selecione uma opção" (onChange)="pkmnTypeOnChange($event)">
+          <ng-template let-pkmnType pTemplate="selectedItem">
+            <div class="flex align-items-center gap-2" *ngIf="pkmnType">
+              <app-type-icon [name]="pkmnType.name" [defaultColor]="true" />
+              <div>{{ pkmnType.name }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-pkmnType pTemplate="item">
+            <div class="flex align-items-center gap-2">
+              <app-type-icon [name]="pkmnType.name" [defaultColor]="true" />
+              <div>{{ pkmnType.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <label for="float-label">Tipo</label>
+      </span>
+    </p-toolbar>
+  </div>
+
+  <div *ngIf="pokemonType" class="types-container">
+
+    <div class="grid">
+
+      <div class="col-12">
+        <p-tabView styleClass="types-tabview">
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="pi pi-times mr-2"></i>
+              <span>Atacando</span>
+            </ng-template>
+
+            <p-card header="Vantagem contra os tipos:" styleClass="types-card mb-3">
+              <div class="flex align-items-center gap-1">
+                <app-type-icon [name]="pkmnType.name" [width]="36" [height]="36" *ngFor="let pkmnType of effectiveness"
+                  [defaultColor]="true" />
+              </div>
+            </p-card>
+
+            <app-type-chart *ngIf="pokemonType && axisCategories" [pokemonTypes]="axisCategories"
+              [typeSelected]="pokemonType" />
+
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="pi pi-shield mr-2"></i>
+              <span>Defendendo</span>
+            </ng-template>
+
+            <p-card header="Desvantagem contra os tipos:" styleClass="types-card mb-3">
+              <div class="flex align-items-center gap-1">
+                <app-type-icon [name]="pkmnType.name" [width]="36" [height]="36" *ngFor="let pkmnType of weakness"
+                  [defaultColor]="true" />
+              </div>
+            </p-card>
+
+            <app-type-chart *ngIf="pokemonType && axisCategories" [pokemonTypes]="axisCategories"
+              [typeSelected]="pokemonType" [reversePerspective]="true" />
+
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+
+    </div>
+
+  </div>
+</app-page-master>

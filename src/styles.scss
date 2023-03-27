@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+@import "/src/assets/scss/_helpers/vars";
+@import "/src/assets/scss/_helpers/text";
+@import "/src/assets/scss/_helpers/sticky";
+@import "/src/assets/scss/_helpers/forms";
+
+@import "/src/assets/scss/_customComponents/menu";
+@import "/src/assets/scss/_customComponents/paginator";
+@import "/src/assets/scss/_customComponents/tabView";
+@import "/src/assets/scss/_customComponents/toolbar";
+@import "/src/assets/scss/_customComponents/pokemonCard";
+
+
+* {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  list-style: none;
+  border: 0
+}
+
+body {
+  background: url('./assets/images/container_bg.png') center center;
+  background-size: contain;
+}
+
+.highcharts-credits {
+  display: none;
+}
+
+.page-header {
+  padding-top: var(--content-padding);
+  padding-right: var(--content-padding);
+  padding-left: var(--content-padding);
+}
+
+.page-content {
+  padding-bottom: 3rem;
+
+  @media screen and (min-width: $deskUp) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.p-card.types-card {
+  min-height: 5rem;
+
+  .p-card-title {
+    font-size: 1rem;
+  }
+
+  .p-card-content {
+    padding: 0;
+  }
+}

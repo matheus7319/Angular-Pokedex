@@ -1,0 +1,28 @@
+<p-card *ngIf="pokemon; else loadingSkeleton" [style]="{ width: '100%' }"
+  styleClass="pokemon-card flip animation-duration-300 animation-ease-out"
+  [ngClass]="'pkmnCard-' + pokemon['types'][0]['type']['name']">
+  <ng-template pTemplate="header">
+    <app-pokemon-card-header [pokemon]="pokemon" />
+    <div class="pokemon-img-wrapper">
+      <img [src]="pokemon['sprites']['other']['official-artwork']['front_default']" class="pokemon-img"
+        alt="Imagem do Pokemon" />
+    </div>
+  </ng-template>
+  <!-- <div class="shiny-effect"></div> -->
+  <div class="pokemon-stats" *ngIf="pokemon['stats']">
+    <div class="flex align-items-center mb-2 hp-stats">
+      <p-chip [label]="pokemon['stats'][0]['base_stat'] + ''" icon="pi pi-heart-fill"></p-chip>
+    </div>
+
+    <div class="pokemon-stats-inner ">
+      <app-pokemon-card-attr-line *ngFor="let item of pokemon['stats'] | slice:1; let i = index;" [stats]="item" />
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <app-pokemon-card-footer [slotType]="pokemon['types']" />
+  </ng-template>
+</p-card>
+
+<ng-template #loadingSkeleton>
+  <app-pokemon-card-skeleton />
+</ng-template>

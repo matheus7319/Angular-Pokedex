@@ -1,0 +1,26 @@
+$space: 2;
+
+$tabletUp: 768px;
+$deskUp: 960px;
+
+.search-container {
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+
+  @media screen and (min-width: $deskUp) {
+    padding-left: $space * 1rem;
+    padding-right: $space * 1rem;
+  }
+}
+
+.types-container {
+  margin: 0 auto;
+  padding-left: $space * 0.3rem;
+  padding-right: $space * 0.3rem;
+
+  @media screen and (min-width: $deskUp) {
+    padding-left: $space * 1rem;
+    padding-right: $space * 1rem;
+  }
+}

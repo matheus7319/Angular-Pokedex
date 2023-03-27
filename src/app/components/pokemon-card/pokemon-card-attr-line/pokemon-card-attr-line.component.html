@@ -1,0 +1,10 @@
+<div *ngIf="stats" class="pokemon-special-stat">
+  <span class="font-medium">{{createLabel(stats)}}</span>
+  <div class="flex flex-1">
+    <div class="flex-1 py-1">
+      <p-progressBar [value]="statBarValue(stats)" [style]="{ height: '100%' }">
+      </p-progressBar>
+    </div>
+  </div>
+  <span class="flex justify-content-end font-bold">{{stats.base_stat}}</span>
+</div>

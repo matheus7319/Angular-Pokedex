@@ -1,0 +1,26 @@
+<app-page-master>
+
+  <div class="search-container mb-3">
+    <p-toolbar styleClass="surface-0">
+      <h3 class="mb-3">Digite o nome ou o ID do Pokemon para ver suas informações</h3>
+      <span class="p-float-label p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [formControl]="searchByName" />
+        <label>Nome/ID</label>
+      </span>
+    </p-toolbar>
+  </div>
+
+  <div class="pokemons-container">
+    <div class="grid" *ngIf="pokemons.length > 0">
+      <div *ngFor="let pokemon of pokemons" class="col-12 md:col-4 lg:col-3">
+        <app-pokemon-card [data]="pokemon"></app-pokemon-card>
+      </div>
+    </div>
+  </div>
+  
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="0" [rows]="pokemonsPerPage" [totalRecords]="pokemonsCount"
+    [showJumpToPageDropdown]="true" [showPageLinks]="false" styleClass="fixed-bottom">
+  </p-paginator>
+
+</app-page-master>

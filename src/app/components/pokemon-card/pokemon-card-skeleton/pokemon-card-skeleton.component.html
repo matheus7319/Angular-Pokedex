@@ -1,0 +1,27 @@
+<p-card [style]="{ width: '100%' }" styleClass="pokemon-card">
+  <ng-template pTemplate="header">
+    <div class="pokemon-header flex align-items-center justify-content-between mb-2">
+      <p-skeleton width="5rem"></p-skeleton>
+      <p-skeleton width="5rem"></p-skeleton>
+    </div>
+    <div class=" pokemon-img-wrapper">
+    </div>
+  </ng-template>
+  <div class="pokemon-stats">
+    <div class="flex align-items-center mb-2 hp-stats">
+      <p-skeleton width="6rem" styleClass="mb-2"></p-skeleton>
+    </div>
+
+    <div class="pokemon-stats-inner">
+      <p-skeleton styleClass="mb-2"></p-skeleton>
+      <p-skeleton styleClass="mb-2"></p-skeleton>
+      <p-skeleton styleClass="mb-2"></p-skeleton>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="flex justify-content-between">
+      <p-skeleton width="2rem" styleClass="mb-2"></p-skeleton>
+      <p-skeleton width="2rem" styleClass="mb-2"></p-skeleton>
+    </div>
+  </ng-template>
+</p-card>
