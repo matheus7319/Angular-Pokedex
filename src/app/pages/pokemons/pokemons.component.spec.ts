@@ -1,7 +1,11 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { KeyFilterModule } from 'primeng/keyfilter';
 import { PaginatorModule } from 'primeng/paginator';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { of } from 'rxjs';
 import { GenericRequest } from 'src/app/models/generic-request.model';
@@ -19,8 +23,21 @@ describe(PokemonsComponent.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PokemonsComponent, PageMasterComponent],
-      imports: [ToolbarModule, PaginatorModule, FormsModule, ReactiveFormsModule],
-      providers: [PokemonService, HttpClient, HttpHandler]
+      imports: [
+        ToolbarModule,
+        PaginatorModule,
+        FormsModule,
+        ReactiveFormsModule,
+        KeyFilterModule,
+        ToastModule,
+        ProgressSpinnerModule
+      ],
+      providers: [
+        PokemonService,
+        HttpClient,
+        HttpHandler,
+        MessageService
+      ]
     })
       .compileComponents();
 

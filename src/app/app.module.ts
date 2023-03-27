@@ -38,8 +38,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TabViewModule } from 'primeng/tabview';
 import { AnimateModule } from 'primeng/animate';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { LayoutModule } from '@angular/cdk/layout';
+import { MessageService } from 'primeng/api';
 
 const primeNgModule = [
   DropdownModule,
@@ -56,7 +59,9 @@ const primeNgModule = [
   InputTextModule,
   ToolbarModule,
   TabViewModule,
-  AnimateModule
+  AnimateModule,
+  ProgressSpinnerModule,
+  KeyFilterModule
 ];
 
 const AngularCdkModule = [
@@ -88,7 +93,7 @@ const AngularCdkModule = [
     primeNgModule,
     AngularCdkModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

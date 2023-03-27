@@ -1,0 +1,14 @@
+$space: 10px;
+
+.p-toast {
+  width: calc(100% - ($space * 2)) !important;
+
+  .p-toast-message .p-toast-message-content .p-toast-message-text {
+    word-break: break-word;
+  }
+}
+
+.p-toast-top-right {
+  top: $space !important;
+  left: $space !important;
+}

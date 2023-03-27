@@ -13,7 +13,13 @@
 @import "/src/assets/scss/_customComponents/tabView";
 @import "/src/assets/scss/_customComponents/toolbar";
 @import "/src/assets/scss/_customComponents/pokemonCard";
+@import "/src/assets/scss/_customComponents/toast";
 
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     /* dark mode variables go here */
+//   }
+// }
 
 * {
   padding: 0;
