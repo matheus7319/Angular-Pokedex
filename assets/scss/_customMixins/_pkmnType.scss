@@ -1,0 +1,23 @@
+@mixin pkmnCardByType($type-name, $main-color, $accent-color) {
+  .pkmnCard-#{$type-name} {
+    .p-card.pokemon-card {
+
+      // .pokemon-header {
+      //   border-bottom: 0.3rem solid $accent-color;
+      // }
+
+      .pokemon-img-wrapper {
+        background: rgba($color: $main-color, $alpha: 0.3);
+      }
+
+      .p-card-content {
+        background: $main-color;
+        border-bottom: 0.3rem solid $accent-color;
+      }
+
+      .pokemon-attr {
+        border-bottom: 0.3rem solid $accent-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+@import "/src/assets/scss/_customMixins/pkmnType";
+
+$pkmnCardOffset: 1;
+$pkmnCardRadius: 0.7rem;
+
+.p-card.pokemon-card {
+  position: relative;
+  border-radius: $pkmnCardRadius;
+  overflow: hidden;
+
+  .p-card-content {
+    padding: 1rem;
+    margin-top: $pkmnCardOffset * -2.4rem;
+    background: $primaryColor;
+    border-bottom: 0.3rem solid $accentColor;
+    border-radius: $pkmnCardRadius;
+  }
+
+  .pokemon-img-wrapper {
+    width: 100%;
+    min-height: 16rem;
+    background: rgba($primaryColor, 0.18);
+    border-radius: $pkmnCardRadius;
+    position: relative;
+
+    .pokemon-img {
+      margin-bottom: $pkmnCardOffset * 1rem;
+      position: relative;
+    }
+  }
+
+  .pokemon-header {
+    position: absolute;
+    width: calc(100% - (($pkmnCardRadius) * 2));
+    padding-top: $pkmnCardRadius * 0.4;
+    padding-right: $pkmnCardRadius * 0.8;
+    padding-bottom: $pkmnCardRadius * 0.4;
+    padding-left: $pkmnCardRadius * 0.8;
+    margin: $pkmnCardRadius *1;
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 0.3rem solid $accentColor;
+    border-radius: $pkmnCardRadius * 0.4;
+    z-index: 1;
+
+    .pokemon-name {
+      text-transform: capitalize;
+      font-size: 1.2rem;
+    }
+
+    .pokemon-id {
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      display: none;
+      transform: scale(0);
+    }
+
+    70% {
+      display: inline-flex;
+      transform: scale(1.2);
+    }
+
+    100% {
+      display: inline-flex;
+      transform: scale(1);
+    }
+  }
+
+  .pokemon-stats {
+    position: relative;
+
+    .hp-stats {
+      .p-chip {
+        position: absolute;
+        bottom: 104%;
+        border-radius: $pkmnCardRadius * 0.8;
+        background: rgb(255, 255, 255);
+        color: $red;
+        animation-name: appear;
+        animation-duration: 0.45s;
+
+        .p-chip-text {
+          font-weight: bold;
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .pokemon-special-stat {
+      display: grid;
+      grid-template-columns: 60px auto 40px;
+    }
+  }
+
+  .p-progressbar {
+    background: rgba(255, 255, 255, 0.66);
+    border-radius: $pkmnCardRadius * 0.3;
+
+    .p-progressbar-value {
+      background: #073b4c;
+    }
+  }
+}
+
+@include pkmnCardByType(normal, #ededed, #656565);
+@include pkmnCardByType(fighting, #e66088, #982446);
+@include pkmnCardByType(flying, #acc3f1, #466095);
+@include pkmnCardByType(poison, #c184de, #82459e);
+@include pkmnCardByType(ground, #f8a87d, #bc5d2b);
+@include pkmnCardByType(rock, #d8cba5, #847857);
+@include pkmnCardByType(bug, #aed167, #678a20);
+@include pkmnCardByType(ghost, #7e8ebf, #213980);
+@include pkmnCardByType(steel, #7ca7b8, #316376);
+@include pkmnCardByType(fire, #f99487, #e3421e);
+@include pkmnCardByType(water, #8bbff6, #3676bb);
+@include pkmnCardByType(grass, #9de396, #409b35);
+@include pkmnCardByType(electric, #ebd366, #9e8412);
+@include pkmnCardByType(psychic, #ffa8ad, #ca4f57);
+@include pkmnCardByType(ice, #aae4dc, #3c877c);
+@include pkmnCardByType(dragon, #95b8d7, #053d6e);
+@include pkmnCardByType(dark, #5A8EA2, #5A8EA2);
+@include pkmnCardByType(fairy, #5A8EA2, #5A8EA2);
+@include pkmnCardByType(unknown, #5A8EA2, #5A8EA2);
+@include pkmnCardByType(shadow, #5A8EA2, #5A8EA2);

@@ -1,0 +1,18 @@
+.p-tabmenuitem.router-item-wrapper,
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.router-item-wrapper .p-menuitem-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: transparent;
+}
+
+.p-menu.menu-desktop {
+  width: 100%;
+  background: transparent;
+  border: 0px none;
+}
+
+.p-menu .p-menuitem-link .p-menuitem-icon {
+  font-size: 1.4rem;
+}
