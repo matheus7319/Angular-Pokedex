@@ -107,7 +107,7 @@ export class TypeIconComponent implements OnInit {
     if (this.name) {
       this.matIconRegistry.addSvgIcon(
         this.name,
-        this.domSanitizer.bypassSecurityTrustResourceUrl(`/assets/images/icons/icon-${this.name}.svg`)
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`./assets/images/icons/icon-${this.name}.svg`)
       );
     }
 
