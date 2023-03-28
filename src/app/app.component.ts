@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SvgIconRegistryService } from 'angular-svg-icon';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -13,15 +14,9 @@ export class AppComponent implements OnInit {
   isSidebarVisible!: boolean;
   isMobile!: boolean;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    // this.responsive.observe([Breakpoints.XSmall, Breakpoints.Small])
-    //   .subscribe(result => {
-    //     this.isMobile = result.matches;
-    //   });
-
     this.initRouteItems();
   }
 

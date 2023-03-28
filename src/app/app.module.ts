@@ -40,9 +40,10 @@ import { TabViewModule } from 'primeng/tabview';
 import { AnimateModule } from 'primeng/animate';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MessageService } from 'primeng/api';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MessageService } from 'primeng/api';
+import { MatIconModule } from "@angular/material/icon";
 
 const primeNgModule = [
   DropdownModule,
@@ -91,7 +92,8 @@ const AngularCdkModule = [
     HttpClientModule,
     HighchartsChartModule,
     primeNgModule,
-    AngularCdkModule
+    AngularCdkModule,
+    MatIconModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

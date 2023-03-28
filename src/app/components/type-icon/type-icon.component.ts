@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-type-icon',
@@ -96,9 +98,19 @@ export class TypeIconComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) { }
 
   ngOnInit(): void {
+    if (this.name) {
+      this.matIconRegistry.addSvgIcon(
+        this.name,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`/assets/images/icons/icon-${this.name}.svg`)
+      );
+    }
+
     this.isShadowOrUnknown = false;
     this.isShadowOrUnknown = this.notLoadIcon.indexOf(this.name) >= 0;
   }

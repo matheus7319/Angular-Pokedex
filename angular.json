@@ -27,7 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images/icons.svg"
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",
@@ -100,7 +101,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images/icons.svg"
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",

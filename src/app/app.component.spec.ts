@@ -24,11 +24,11 @@ describe(AppComponent.name, () => {
         ButtonModule,
         SidebarModule,
         MenuModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
       ],
       declarations: [
         AppComponent
-      ]
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

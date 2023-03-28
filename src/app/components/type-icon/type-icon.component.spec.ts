@@ -1,4 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
 
 import { TypeIconComponent } from './type-icon.component';
 
@@ -8,7 +13,15 @@ describe(TypeIconComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TypeIconComponent]
+      declarations: [TypeIconComponent],
+      imports: [
+        HttpClientModule,
+        MatIconModule
+      ],
+      providers: [
+        MatIconRegistry
+      ],
+      schemas: []
     })
       .compileComponents();
 
@@ -16,6 +29,8 @@ describe(TypeIconComponent.name, () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+
 
   describe(`#${TypeIconComponent.prototype.getIconColor.name}`, () => {
     it('should return the color of the icon when (@Input() name) and (@Input() defaultColor)', () => {
