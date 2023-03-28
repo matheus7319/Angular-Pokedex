@@ -2,7 +2,7 @@
   <!-- <svg [attr.class]="'icon icon-' + name" fill="currentColor" [attr.width]="width" [attr.height]="height">
     <use [attr.xlink:href]="'./../../../assets/images/icons.svg#icon-' + name"></use>
   </svg> -->
-  <mat-icon class="icon-small" [svgIcon]="name" [attr.width]="width" [attr.height]="height"></mat-icon>
+  <mat-icon *ngIf="name" class="icon-small" [svgIcon]="name" [attr.width]="width" [attr.height]="height"></mat-icon>
 </span>
 
 <ng-template #fallback>
