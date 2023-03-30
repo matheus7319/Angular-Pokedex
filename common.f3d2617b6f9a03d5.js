@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkPokedex=self.webpackChunkPokedex||[]).push([[592],{1762:(t,n,_)=>{_.d(n,{c:()=>u});var a=_(6895),c=_(7869),e=_(8274);let u=(()=>{class o{}return o.\u0275fac=function(s){return new(s||o)},o.\u0275mod=e.oAB({type:o}),o.\u0275inj=e.cJS({imports:[a.ez,c.Ps]}),o})()}}]);
