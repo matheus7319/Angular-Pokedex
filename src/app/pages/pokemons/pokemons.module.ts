@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PokemonCardModule } from 'src/app/components/pokemon-card/pokemon-card.module';
 import { PokemonsComponent } from './pokemons.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PaginatorModule } from 'primeng/paginator';
     ToolbarModule,
     ProgressSpinnerModule,
     PaginatorModule,
-    PokemonCardModule
+    PokemonCardModule,
+    InputTextModule
   ],
   providers: [
     MessageService

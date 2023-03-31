@@ -5,7 +5,8 @@
       <h3 class="mb-3">Digite o nome ou o ID do Pokemon para ver suas informações</h3>
       <span class="p-float-label p-input-icon-left">
         <i class="pi pi-search"></i>
-        <input type="text" pInputText pKeyFilter="alphanum" [formControl]="searchByName" />
+        <input type="text" pInputText pKeyFilter="alphanum" [formControl]="searchByName"
+          (keyup.enter)="onSearchPokemon()" />
         <label>Nome/ID</label>
       </span>
     </p-toolbar>

@@ -26,6 +26,7 @@ export class TypesComponent implements OnInit, OnDestroy {
 
   pkmnTypes$!: Observable<GenericItem[]>;
   dropdownOptions: FormControl<GenericItem> = new FormControl();
+  pokemonTypeSelected: GenericItem = new GenericItem();
 
   effectiveness!: DamageType[];
   weakness!: DamageType[];
@@ -61,14 +62,13 @@ export class TypesComponent implements OnInit, OnDestroy {
   }
 
   pkmnTypeOnChange(ev: any): void {
-    const item: GenericItem = ev.value;
-    if (item.url) {
-      this.getTypeBy(item.url);
+    this.pokemonTypeSelected = ev.value;
+    if (this.pokemonTypeSelected.url) {
+      this.getTypeBy(this.pokemonTypeSelected.url);
     }
   }
 
   getTypeBy(url: string): void {
-    this.pokemonType;
     this.baseService.getByUrl<PokemonType>(url).pipe(
       takeUntil(this.destroy$)
     ).subscribe(pokemonType => {

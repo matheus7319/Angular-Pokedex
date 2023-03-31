@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
-import { Paginator } from 'primeng/paginator';
-import { debounceTime, Observable, shareReplay } from 'rxjs';
-import { tap } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { takeUntil, Subject } from 'rxjs';
 import { GenericItem } from 'src/app/models/generic-item.model';
-import { GenericRequest, PageParams } from 'src/app/models/generic-request.model';
+import { PageParams } from 'src/app/models/generic-request.model';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { MessageService } from 'primeng/api';
@@ -36,7 +34,6 @@ export class PokemonsComponent implements OnInit, OnDestroy {
   pageParams = new PageParams();
 
   constructor(
-    private fb: FormBuilder,
     private pokemonService: PokemonService,
     private messageService: MessageService
   ) { }
@@ -44,18 +41,12 @@ export class PokemonsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getPokemonList(0);
 
-    this.searchByName.valueChanges.pipe(
-      takeUntil(this.destroy$),
-      debounceTime(500)
-    ).subscribe(typedValue => {
-      if (typedValue.length > 0) {
-        this.isSearching = true;
-        this.getPokemonByID(typedValue.toLowerCase());
-      } else {
-        this.isSearching = false;
-        this.getPokemonList(this.pokemonsPage);
-      }
-    });
+    // this.searchByName.valueChanges.pipe(
+    //   takeUntil(this.destroy$),
+    //   debounceTime(1500)
+    // ).subscribe(value => {
+    //   this.onSearchPokemon();
+    // });
   }
 
   ngOnDestroy() {
@@ -74,6 +65,7 @@ export class PokemonsComponent implements OnInit, OnDestroy {
     }, err => {
       this.messageService.add({ severity: 'error', summary: err.error, detail: err.url });
       this.isLoadingData = false;
+      throw new Error('Pokemon não encontrado');
     });
   }
 
@@ -92,10 +84,20 @@ export class PokemonsComponent implements OnInit, OnDestroy {
     });
   }
 
-  onPageChange(e: any) {
+  onPageChange(e: any): void {
     this.pokemonsPage = e.page;
     this.pokemonsFirst = e.first;
     this.getPokemonList(this.pokemonsPage);
+  }
+
+  onSearchPokemon(): void {
+    if (this.searchByName.value.length > 0) {
+      this.isSearching = true;
+      this.getPokemonByID(this.searchByName.value.toLowerCase());
+    } else {
+      this.isSearching = false;
+      this.getPokemonList(this.pokemonsPage);
+    }
   }
 
 }

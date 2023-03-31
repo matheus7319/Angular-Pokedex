@@ -14,10 +14,13 @@ import { PageMasterComponent } from 'src/app/templates/page-master/page-master.c
 import { mockPokemonType1, mockPokemonTypesAll } from 'src/mocks/pokemonTypes/pokemon-type.mock';
 
 import { TypesComponent } from './types.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
-describe('TypesComponent', () => {
+describe(TypesComponent.name, () => {
   let component: TypesComponent;
   let fixture: ComponentFixture<TypesComponent>;
+  let debug: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -29,8 +32,8 @@ describe('TypesComponent', () => {
 
     fixture = TestBed.createComponent(TypesComponent);
     component = fixture.componentInstance;
-
     fixture.detectChanges();
+    debug = fixture.debugElement;
   });
 
   describe(`#${TypesComponent.prototype.getPokemonTypesList.name}`, () => {
@@ -49,7 +52,49 @@ describe('TypesComponent', () => {
     });
   });
 
+  // describe(`#${TypesComponent.prototype.pkmnTypeOnChange.name}`, () => {
+  //   spyOn(component, 'getTypeBy');
+
+  //   const dropdown = debug.query(By.css('.p-inputtext'));
+  //   dropdown.triggerEventHandler('click', {});
+  //   const dropdownItem = debug.query(By.css('.p-dropdown-item[aria-label="rock"]'));
+  //   dropdownItem.triggerEventHandler('click', {});
+
+  //   let testParam = {
+  //     "name": "rock",
+  //     "url": "https://pokeapi.co/api/v2/type/6/"
+  //   };
+
+  //   component.pkmnTypeOnChange({
+  //     "originalEvent": {
+  //       "isTrusted": true
+  //     },
+  //     "value": testParam
+  //   });
+  //   expect(component.pokemonTypeSelected).toEqual(testParam);
+  //   expect(component.getTypeBy).toHaveBeenCalled();
+  // });
+
   describe(`#${TypesComponent.prototype.getTypeBy.name}`, () => {
+    it('should return a object with data of damage relation', () => {
+      let baseService = fixture.debugElement.injector.get(BaseService);
+      let urlFighting = "https://pokeapi.co/api/v2/type/2/";
+
+      let pokemonType = new PokemonType();
+      pokemonType.damage_relations = mockPokemonType1.damage_relations;
+      pokemonType.id = mockPokemonType1.id;
+      pokemonType.name = mockPokemonType1.name;
+
+      spyOn<any>(baseService, 'getByUrl').and.callFake(() => {
+        return of(pokemonType)
+      })
+
+      component.getTypeBy(urlFighting);
+      expect(component.effectiveness).toEqual(pokemonType.damage_relations.double_damage_to);
+      expect(component.weakness).toEqual(pokemonType.damage_relations.double_damage_from);
+      expect(component.pokemonType).toEqual(pokemonType);
+    });
+
     it('should return a object with data of damage relation', () => {
       let baseService = fixture.debugElement.injector.get(BaseService);
       let urlFighting = "https://pokeapi.co/api/v2/type/2/";

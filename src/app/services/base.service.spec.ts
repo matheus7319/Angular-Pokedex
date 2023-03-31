@@ -22,15 +22,14 @@ describe(BaseService.name, () => {
 
   describe(`#${BaseService.prototype.getByUrl.name}`, () => {
 
-    it('should throw when param is empty', () => {
+    it('should throw ERROR when param is empty', () => {
       expect(() => service.getByUrl('')).toThrow();
     });
 
-    it('should throw when param not start with https', () => {
+    it('should throw ERROR when param not start with https', () => {
       expect(() => service.getByUrl('01145')).toThrow();
     });
 
-    // TODO iterar uma lista de possiveis endpoints comparando com o devido mock
     it('should return value from observable', () => {
       service.getByUrl(`${service.API}/pokemon/1`).subscribe(res => {
         expect(res).toEqual(mockPokemon1);
@@ -46,12 +45,11 @@ describe(BaseService.name, () => {
   });
 
   describe(`#${BaseService.prototype.list.name}`, () => {
-    // TODO impedir que entre string numero
+    
     it('should throw when called with empty param', () => {
       expect(() => service.list('')).toThrow();
     });
 
-    // TODO iterar uma lista de possiveis endpoints comparando com o devido mock
     it('should return value from observable', () => {
       service.list('pokemon').subscribe((res: any) => {
         expect(res).toEqual(mockPokemonAll);
