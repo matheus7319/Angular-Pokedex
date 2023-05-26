@@ -30,7 +30,7 @@ describe(TypeChartComponent.name, () => {
     component.ngOnChanges();
 
     expect(component.categories.length).toBeGreaterThan(0);
-  })
+  });
 
   it(`#${TypeChartComponent.prototype.updateData.name}`, () => {
     component.pokemonTypes = mockPokemonTypesAll.results;
@@ -42,7 +42,7 @@ describe(TypeChartComponent.name, () => {
     component.ngOnChanges();
 
     expect(component.chartData.length).toBeGreaterThan(0);
-  })
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

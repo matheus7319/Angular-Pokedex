@@ -49,7 +49,7 @@ describe(TypeIconComponent.name, () => {
     it('should NOT return the color of the icon', () => {
       expect(component.getIconColor()).toEqual({ color: 'inherit' });
     });
-  })
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
