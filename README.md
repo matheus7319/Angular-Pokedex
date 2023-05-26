@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Live demo
 
-https://matheus7319.github.io/Pokedex/pokemons
+https://matheus7319.github.io/Angular-Pokedex/pokemons
 
 ## Development server
 
